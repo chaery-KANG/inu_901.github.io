@@ -1,0 +1,70 @@
+import math
+
+#1. 도형 별 넓이 계산기
+#메뉴에 있는 도형을 선택하고 길이를 입력받아 넓이를 구할 수 있는 코드를 작성해보세요.
+
+#조건 1: 도형은 원, 삼각형, 직사각형, 정사각형이 존재합니다.
+#조건 2: 도형의 넓이 계산은 무조건 함수로 정의되어야 합니다.
+#조건 3: 도형 별로 필요한 길이를 입력받아야 합니다.
+#원 -> 반지름
+#삼각형 -> 밑변, 높이
+#직사각형 -> 가로, 세로
+#정사각형 -> 한 변의 길이 
+
+#도형 넓이 계산 공식
+
+pi=3.141592
+
+
+print(" 1, 2, 3, 4 중 선택해주세요! --------------------------- ")
+print(" 1: 원, 2: 삼각형, 3: 직사각형, 4: 정사각형 ")
+
+#def 함수 이용 각 선언 준비 
+def circle(r):
+  return r * r * pi
+
+def triangle(width, height):
+  return width * height // 2
+
+def ractangle(width, height):
+  return width * height
+
+def square (length):
+  return length * length
+
+while (1):
+
+      number = int(input("도형 목록에서 넓이를 계산할 도형의 번호를 입력해주세요:"))
+      
+      if number == 1:
+        r = int(input("반지름 길이를 입력해주세요:"))
+        ans = round(circle(r),2)
+        print('반지름 길이가 %d인 원의 넓이는 약 %.2f입니다.' %(r, ans))
+        #(원 넓이 공식): 반지름 * 반지름 * (3.141592)
+
+      
+      elif number == 2:
+        w = int(input("삼각형 밑변 길이를 입력해주세요:"))
+        h = int(input("삼각형 높이 길이를 입력해주세요:"))
+        ans = triangle(w, h) 
+        print('밑변이 %d이고 높이가 %d인 삼각형의 넓이는 %d입니다.' %(w,h,ans))
+        #(삼각형 넓이 공식): 밑변 * 높이 / 2
+
+      
+      elif number == 3:
+        w = int(input("직사각형 가로 길이를 입력해주세요:"))
+        h = int(input("직사각형 세로 길이를 입력해주세요:"))
+        ans = ractangle(w, h) 
+        print('가로가 %d이고 세로가 %d인 직사각형의 넓이는 %d입니다.' %(w,h,ans))
+        #(직사각형 넓이 공식) : 가로 * 세로
+
+        
+      elif number == 4:
+        l = int(input("정사각형의 가로 세로 길이를 입력해주세요:"))
+        ans = square(l)
+        print('한 변의 길이가 %d인 정사각형의 넓이는 %d입니다.' %(l,ans))
+        #(정사각형 넓이 공식) : (한 변 길이) * (한 변 길이)
+
+
+      else:
+        print('다시 입력해주세요.')
